@@ -10,7 +10,7 @@ import java.util.Objects
 
 plugins {
     kotlin("jvm") version "1.7.20"
-
+    `maven-publish`
     `java-library`
 }
 
@@ -45,9 +45,21 @@ tasks.test{
         }
     }
 
-    println("length: " + System.getProperty("serverUrl").length)
-    if(System.getProperty("serverUrl").length < 20)
+    if(System.getProperty("serverUrl").length < 18)
         throw StopExecutionException("Please update gradle.properties: "+File(rootDir,"gradle.properties"))
 
     systemProperties(System.getProperties().toMap() as Map<String,Object>)
+}
+
+publishing{
+    repositories{
+        maven{
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/Sensetime-SCG/Nebula-webapi4j")
+            credentials{
+                username = System.getenv("USERNAME")
+                password = System.getenv("TOKEN")
+            }
+        }
+    }
 }
