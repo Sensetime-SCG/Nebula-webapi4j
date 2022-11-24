@@ -1,0 +1,16 @@
+systemProp.message = 'Nebula Webapi4j Unit Test'
+
+
+# The device server url address, eg:  systemProp.serverUrl = https://192.168.123.211:8000
+systemProp.serverUrl = https://x.x:8000
+
+
+# The device account, eg: systemProp.username = user
+systemProp.username =
+
+
+# The device password, eg: systemProp.password = password
+systemProp.password =
+
+# The device firmware file path ,eg:  systemProp.firmwarePath = /mnt/SensePassX.tar
+systemProp.firmwarePath =
