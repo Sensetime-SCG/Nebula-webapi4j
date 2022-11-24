@@ -14,6 +14,9 @@ plugins {
     `java-library`
 }
 
+group = "com.sensetime.nebula"
+version = "1.0.0"
+
 repositories {
     mavenCentral()
 }
