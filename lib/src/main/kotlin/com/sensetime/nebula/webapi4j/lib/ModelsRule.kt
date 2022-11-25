@@ -12,9 +12,9 @@ data class ModelRuleSchedulePeriod(
 )
 
 data class ModelRuleScheduleSpecialDay(
-    val year: Short,
-    val month: Short,
-    val day: Short,
+    val year: Int,
+    val month: Int,
+    val day: Int,
     val today_period: List<ModelRuleSchedulePeriod>
 )
 
