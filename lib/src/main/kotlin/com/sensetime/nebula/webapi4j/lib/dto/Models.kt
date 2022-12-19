@@ -1,4 +1,4 @@
-package com.sensetime.nebula.webapi4j.lib
+package com.sensetime.nebula.webapi4j.lib.dto
 
 data class ResponseToken(
     val token: String

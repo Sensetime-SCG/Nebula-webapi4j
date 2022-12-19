@@ -3,7 +3,8 @@
  */
 package com.sensetime.nebula.webapi4j
 
-import com.sensetime.nebula.webapi4j.lib.*
+import com.sensetime.nebula.webapi4j.lib.api.*
+import com.sensetime.nebula.webapi4j.lib.dto.*
 import kotlinx.coroutines.*
 import kotlin.test.Test
 import kotlin.test.assertTrue

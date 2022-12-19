@@ -1,4 +1,4 @@
-package com.sensetime.nebula.webapi4j.lib
+package com.sensetime.nebula.webapi4j.lib.base
 
 import com.google.gson.GsonBuilder
 import java.nio.charset.Charset

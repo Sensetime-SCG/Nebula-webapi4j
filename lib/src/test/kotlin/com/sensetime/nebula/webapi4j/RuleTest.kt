@@ -3,10 +3,10 @@
  */
 package com.sensetime.nebula.webapi4j
 
-import com.sensetime.nebula.webapi4j.lib.*
+import com.sensetime.nebula.webapi4j.lib.dto.*
+import com.sensetime.nebula.webapi4j.lib.api.RemoteDataSource
 import kotlinx.coroutines.*
 import kotlin.test.Test
-import kotlin.test.assertTrue
 
 class RuleTest {
     private val request: RemoteDataSource = WebApi(System.getProperty("serverUrl"), System.getProperty("username"), System.getProperty("password")).getEndpoint()

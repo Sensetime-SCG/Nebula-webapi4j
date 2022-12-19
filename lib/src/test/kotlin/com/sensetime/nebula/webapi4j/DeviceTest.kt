@@ -3,7 +3,7 @@
  */
 package com.sensetime.nebula.webapi4j
 
-import com.sensetime.nebula.webapi4j.lib.*
+import com.sensetime.nebula.webapi4j.lib.api.RemoteDataSource
 import kotlinx.coroutines.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody

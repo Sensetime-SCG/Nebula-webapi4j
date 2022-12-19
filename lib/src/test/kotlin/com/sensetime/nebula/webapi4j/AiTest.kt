@@ -4,6 +4,7 @@
 package com.sensetime.nebula.webapi4j
 
 import com.sensetime.nebula.webapi4j.lib.*
+import com.sensetime.nebula.webapi4j.lib.api.RemoteDataSource
 import kotlinx.coroutines.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -17,9 +18,9 @@ class AiTest {
         System.getProperty("username"),
         System.getProperty("password")
     ).getEndpoint()
-    val faceAndyLauPath = this::class.java.getResource("/pictures/face_Andy-Lau.jpeg")?.path
-    val faceWithMaskPath = this::class.java.getResource("/pictures/face_with_mask.jpeg")?.path
-    val faceWithHelmetPath = this::class.java.getResource("/pictures/face_with_helmet.jpeg")?.path
+    private val faceAndyLauPath = this::class.java.getResource("/pictures/face_Andy-Lau.jpeg")?.path
+    private val faceWithMaskPath = this::class.java.getResource("/pictures/face_with_mask.jpeg")?.path
+    private val faceWithHelmetPath = this::class.java.getResource("/pictures/face_with_helmet.jpeg")?.path
 
     @Test
     fun testAiRecognitionQuality(): Unit = runBlocking {

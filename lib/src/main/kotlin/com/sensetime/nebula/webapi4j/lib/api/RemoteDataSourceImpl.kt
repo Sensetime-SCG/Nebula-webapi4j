@@ -1,5 +1,7 @@
-package com.sensetime.nebula.webapi4j.lib
+package com.sensetime.nebula.webapi4j.lib.api
 
+import com.sensetime.nebula.webapi4j.lib.base.*
+import com.sensetime.nebula.webapi4j.lib.dto.*
 import okhttp3.MultipartBody
 import javax.lang.model.type.NullType
 

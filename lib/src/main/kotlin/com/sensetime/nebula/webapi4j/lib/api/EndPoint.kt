@@ -1,10 +1,12 @@
-package com.sensetime.nebula.webapi4j.lib
+package com.sensetime.nebula.webapi4j.lib.api
 
 
 import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.*
 import javax.lang.model.type.NullType
+import com.sensetime.nebula.webapi4j.lib.base.*
+import com.sensetime.nebula.webapi4j.lib.dto.*
 
 interface EndPoint {
     @POST("v1/auth/login")

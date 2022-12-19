@@ -2,6 +2,7 @@ package com.sensetime.nebula.webapi4j.lib
 
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import com.sensetime.nebula.webapi4j.lib.base.Jwt
 
 class JwtTest {
     val jwtString: String =
