@@ -16,10 +16,13 @@ interface EndPoint {
     suspend fun authErrors(): Response<ApiResponse<List<ResponseErrors>>>
 
     @POST("v1/user")
-    suspend fun userCreate(@Body body: RequestUser) :Response<ApiResponse<ResponseUser>>
+    suspend fun userCreate(@Body body: RequestUser): Response<ApiResponse<ResponseUser>>
 
     @GET("v1/user/id/{id}")
     suspend fun userGet(@Path("id") id: Long): Response<ApiResponse<ResponseUser>>
+
+    @POST("/v1/user/search")
+    suspend fun userSearch(@Body body: RequestUserSearch): Response<ApiResponse<ResponseItems<Long>>>
 
     @PUT("v1/user/id/{id}")
     suspend fun userUpdate(@Path("id") id: Long, @Body body: RequestUser): Response<ApiResponse<ResponseUser>>
@@ -38,6 +41,9 @@ interface EndPoint {
 
     @GET("v1/group/id/{id}")
     suspend fun groupGet(@Path("id") id: Long): Response<ApiResponse<ResponseGroup>>
+
+    @POST("/v1/group/search")
+    suspend fun groupSearch(@Body body: RequestSearchOfName): Response<ApiResponse<ResponseItems<Long>>>
 
     @PUT("v1/group/id/{id}")
     suspend fun groupUpdate(@Path("id") id: Long, @Body body: RequestGroup): Response<ApiResponse<ResponseGroup>>
@@ -59,6 +65,9 @@ interface EndPoint {
 
     @GET("v1/rule/id/{id}")
     suspend fun ruleGet(@Path("id") id: Long): Response<ApiResponse<ResponseRule>>
+
+    @POST("/v1/rule/search")
+    suspend fun ruleSearch(@Body body: RequestSearchOfName): Response<ApiResponse<ResponseItems<Long>>>
 
     @PUT("v1/rule/id/{id}")
     suspend fun ruleUpdate(@Path("id") id: Long, @Body body: RequestRule): Response<ApiResponse<ResponseRule>>
@@ -113,25 +122,25 @@ interface EndPoint {
     suspend fun deviceSystemConfigGet(): Response<ApiResponse<DeviceSystem>>
 
     @POST("v1/device/custom")
-    suspend fun deviceCustomConfigSet(@Body body: DeviceCustom):Response<ApiResponse<NullType>>
+    suspend fun deviceCustomConfigSet(@Body body: DeviceCustom): Response<ApiResponse<NullType>>
 
     @GET("v1/device/custom")
-    suspend fun deviceCustomConfigGet():Response<ApiResponse<DeviceCustom>>
+    suspend fun deviceCustomConfigGet(): Response<ApiResponse<DeviceCustom>>
 
     @POST("v1/device/time")
-    suspend fun deviceTimeConfigSet(@Body body:DeviceTime):Response<ApiResponse<NullType>>
+    suspend fun deviceTimeConfigSet(@Body body: DeviceTime): Response<ApiResponse<NullType>>
 
     @GET("v1/device/time")
-    suspend fun deviceTimeConfigGet():Response<ApiResponse<DeviceTime>>
+    suspend fun deviceTimeConfigGet(): Response<ApiResponse<DeviceTime>>
 
     @POST("v1/device/door")
-    suspend fun deviceDoorOpen(@Body body:DeviceDoor):Response<ApiResponse<NullType>>
+    suspend fun deviceDoorOpen(@Body body: DeviceDoor): Response<ApiResponse<NullType>>
 
     @Multipart
     @POST("v1/ai/recognitionquality")
-    suspend fun aiRecognitionQuality(@Part part: MultipartBody.Part):Response<ApiResponse<List<AiQuality>>>
+    suspend fun aiRecognitionQuality(@Part part: MultipartBody.Part): Response<ApiResponse<List<AiQuality>>>
 
     @Multipart
     @POST("v1/ai/feature")
-    suspend fun aiFeature(@Part part: MultipartBody.Part):Response<ApiResponse<String>>
+    suspend fun aiFeature(@Part part: MultipartBody.Part): Response<ApiResponse<String>>
 }

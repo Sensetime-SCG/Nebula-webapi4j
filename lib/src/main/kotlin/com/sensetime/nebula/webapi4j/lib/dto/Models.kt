@@ -26,3 +26,7 @@ data class RequestAuth(
     val password: String,
     val validTime: Short
 )
+
+data class RequestSearchOfName(
+    val name: String
+)

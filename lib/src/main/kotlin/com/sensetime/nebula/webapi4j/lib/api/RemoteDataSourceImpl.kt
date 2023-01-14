@@ -25,6 +25,10 @@ class RemoteDataSourceImpl(
         return safeApiResponseCall(endPoint.userGet(id))
     }
 
+    override suspend fun userSearch(body: RequestUserSearch): RemoteResponseWrap<ResponseItems<Long>> {
+        return safeApiResponseCall(endPoint.userSearch(body))
+    }
+
     override suspend fun userUpdate(id: Long, body: RequestUser): RemoteResponseWrap<ResponseUser> {
         return safeApiResponseCall(endPoint.userUpdate(id, body))
     }
@@ -45,6 +49,10 @@ class RemoteDataSourceImpl(
 
     override suspend fun groupGet(id: Long): RemoteResponseWrap<ResponseGroup> {
         return safeApiResponseCall(endPoint.groupGet(id))
+    }
+
+    override suspend fun groupSearch(body: RequestSearchOfName): RemoteResponseWrap<ResponseItems<Long>> {
+        return safeApiResponseCall(endPoint.groupSearch(body))
     }
 
     override suspend fun groupUpdate(id: Long, body: RequestGroup): RemoteResponseWrap<ResponseGroup> {
@@ -71,6 +79,10 @@ class RemoteDataSourceImpl(
 
     override suspend fun ruleGet(id: Long): RemoteResponseWrap<ResponseRule> {
         return safeApiResponseCall(endPoint.ruleGet(id))
+    }
+
+    override suspend fun ruleSearch(body: RequestSearchOfName): RemoteResponseWrap<ResponseItems<Long>> {
+        return safeApiResponseCall(endPoint.ruleSearch(body))
     }
 
     override suspend fun ruleUpdate(id: Long, body: RequestRule): RemoteResponseWrap<ResponseRule> {

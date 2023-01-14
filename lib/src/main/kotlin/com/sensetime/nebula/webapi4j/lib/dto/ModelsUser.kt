@@ -35,3 +35,9 @@ data class ResponseUser(
     val create_at: Long,
     val update_at: Long
 )
+
+data class RequestUserSearch(
+    val name: String = "",
+    val job_number: String = "",
+    val ic_number: String = ""
+)
