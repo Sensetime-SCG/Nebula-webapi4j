@@ -35,11 +35,3 @@ data class ResponseUser(
     val create_at: Long,
     val update_at: Long
 )
-
-data class ResponseUserItems(
-    val offset:Short,
-    val limit:Short,
-    val count:Int,
-    val total:Int,
-    val items:List<ResponseUser>
-)

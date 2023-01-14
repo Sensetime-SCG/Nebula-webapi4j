@@ -9,8 +9,16 @@ data class ResponseErrors(
     val msg: String
 )
 
-data class ResponseItemsInt(
-    val items: List<Long>
+data class ResponseItems<T>(
+    val items: List<T>
+)
+
+data class ResponseOffsetItems<T>(
+    val offset:Short,
+    val limit:Short,
+    val count:Int,
+    val total:Int,
+    val items:List<T>
 )
 
 data class RequestAuth(

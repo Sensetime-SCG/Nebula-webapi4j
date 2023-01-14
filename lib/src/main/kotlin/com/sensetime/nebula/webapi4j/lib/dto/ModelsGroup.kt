@@ -17,11 +17,3 @@ data class RequestGroup(
     val group_id: Long,
     val rule_id: Long
 )
-
-data class ResponseGroupItems(
-    val offset:Short,
-    val limit:Short,
-    val count:Int,
-    val total:Int,
-    val items:List<ResponseGroup>
-)

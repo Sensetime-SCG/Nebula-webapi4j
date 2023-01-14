@@ -21,8 +21,8 @@ class RemoteDataSourceImpl(
         return safeApiResponseCall(endPoint.userCreate(body))
     }
 
-    override suspend fun userSearch(id: Long): RemoteResponseWrap<ResponseUser> {
-        return safeApiResponseCall(endPoint.userSearch(id))
+    override suspend fun userGet(id: Long): RemoteResponseWrap<ResponseUser> {
+        return safeApiResponseCall(endPoint.userGet(id))
     }
 
     override suspend fun userUpdate(id: Long, body: RequestUser): RemoteResponseWrap<ResponseUser> {
@@ -35,7 +35,7 @@ class RemoteDataSourceImpl(
             { it.asException() })
     }
 
-    override suspend fun users(offset: Long, limit: Long): RemoteResponseWrap<ResponseUserItems> {
+    override suspend fun users(offset: Long, limit: Long): RemoteResponseWrap<ResponseOffsetItems<ResponseUser>> {
         return safeApiResponseCall(endPoint.users(offset, limit))
     }
 
@@ -43,8 +43,8 @@ class RemoteDataSourceImpl(
         return safeApiResponseCall(endPoint.groupCreate(body))
     }
 
-    override suspend fun groupSearch(id: Long): RemoteResponseWrap<ResponseGroup> {
-        return safeApiResponseCall(endPoint.groupSearch(id))
+    override suspend fun groupGet(id: Long): RemoteResponseWrap<ResponseGroup> {
+        return safeApiResponseCall(endPoint.groupGet(id))
     }
 
     override suspend fun groupUpdate(id: Long, body: RequestGroup): RemoteResponseWrap<ResponseGroup> {
@@ -57,11 +57,11 @@ class RemoteDataSourceImpl(
             { it.asException() })
     }
 
-    override suspend fun groupWithUsers(id: Long): RemoteResponseWrap<ResponseItemsInt> {
+    override suspend fun groupWithUsers(id: Long): RemoteResponseWrap<ResponseItems<Long>> {
         return safeApiResponseCall(endPoint.groupWithUsers(id))
     }
 
-    override suspend fun groups(offset: Long, limit: Long): RemoteResponseWrap<ResponseGroupItems> {
+    override suspend fun groups(offset: Long, limit: Long): RemoteResponseWrap<ResponseOffsetItems<ResponseGroup>> {
         return safeApiResponseCall(endPoint.groups(offset, limit))
     }
 
@@ -69,8 +69,8 @@ class RemoteDataSourceImpl(
         return safeApiResponseCall(endPoint.ruleCreate(body))
     }
 
-    override suspend fun ruleSearch(id: Long): RemoteResponseWrap<ResponseRule> {
-        return safeApiResponseCall(endPoint.ruleSearch(id))
+    override suspend fun ruleGet(id: Long): RemoteResponseWrap<ResponseRule> {
+        return safeApiResponseCall(endPoint.ruleGet(id))
     }
 
     override suspend fun ruleUpdate(id: Long, body: RequestRule): RemoteResponseWrap<ResponseRule> {
@@ -83,11 +83,11 @@ class RemoteDataSourceImpl(
             { it.asException() })
     }
 
-    override suspend fun ruleWithGroup(id: Long): RemoteResponseWrap<ResponseItemsInt> {
+    override suspend fun ruleWithGroup(id: Long): RemoteResponseWrap<ResponseItems<Long>> {
         return safeApiResponseCall(endPoint.ruleWithGroup(id))
     }
 
-    override suspend fun rules(offset: Long, limit: Long): RemoteResponseWrap<ResponseRuleItems> {
+    override suspend fun rules(offset: Long, limit: Long): RemoteResponseWrap<ResponseOffsetItems<ResponseRule>> {
         return safeApiResponseCall(endPoint.rules(offset, limit))
     }
 

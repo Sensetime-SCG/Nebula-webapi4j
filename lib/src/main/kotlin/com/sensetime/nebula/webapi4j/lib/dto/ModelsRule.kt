@@ -44,11 +44,3 @@ data class ResponseRule(
     val create_at: Long,
     val update_at: Long
 )
-
-data class ResponseRuleItems(
-    val offset:Short,
-    val limit:Short,
-    val count:Int,
-    val total:Int,
-    val items:List<ResponseRule>
-)

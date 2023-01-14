@@ -19,7 +19,7 @@ interface EndPoint {
     suspend fun userCreate(@Body body: RequestUser) :Response<ApiResponse<ResponseUser>>
 
     @GET("v1/user/id/{id}")
-    suspend fun userSearch(@Path("id") id: Long): Response<ApiResponse<ResponseUser>>
+    suspend fun userGet(@Path("id") id: Long): Response<ApiResponse<ResponseUser>>
 
     @PUT("v1/user/id/{id}")
     suspend fun userUpdate(@Path("id") id: Long, @Body body: RequestUser): Response<ApiResponse<ResponseUser>>
@@ -31,13 +31,13 @@ interface EndPoint {
     suspend fun users(
         @Path("offset") offset: Long,
         @Path("limit") limit: Long
-    ): Response<ApiResponse<ResponseUserItems>>
+    ): Response<ApiResponse<ResponseOffsetItems<ResponseUser>>>
 
     @POST("v1/group")
     suspend fun groupCreate(@Body body: RequestGroup): Response<ApiResponse<ResponseGroup>>
 
     @GET("v1/group/id/{id}")
-    suspend fun groupSearch(@Path("id") id: Long): Response<ApiResponse<ResponseGroup>>
+    suspend fun groupGet(@Path("id") id: Long): Response<ApiResponse<ResponseGroup>>
 
     @PUT("v1/group/id/{id}")
     suspend fun groupUpdate(@Path("id") id: Long, @Body body: RequestGroup): Response<ApiResponse<ResponseGroup>>
@@ -49,16 +49,16 @@ interface EndPoint {
     suspend fun groups(
         @Path("offset") offset: Long,
         @Path("limit") limit: Long
-    ): Response<ApiResponse<ResponseGroupItems>>
+    ): Response<ApiResponse<ResponseOffsetItems<ResponseGroup>>>
 
     @GET("v1/group/id/{id}/users")
-    suspend fun groupWithUsers(@Path("id") id: Long): Response<ApiResponse<ResponseItemsInt>>
+    suspend fun groupWithUsers(@Path("id") id: Long): Response<ApiResponse<ResponseItems<Long>>>
 
     @POST("v1/rule")
     suspend fun ruleCreate(@Body body: RequestRule): Response<ApiResponse<ResponseRule>>
 
     @GET("v1/rule/id/{id}")
-    suspend fun ruleSearch(@Path("id") id: Long): Response<ApiResponse<ResponseRule>>
+    suspend fun ruleGet(@Path("id") id: Long): Response<ApiResponse<ResponseRule>>
 
     @PUT("v1/rule/id/{id}")
     suspend fun ruleUpdate(@Path("id") id: Long, @Body body: RequestRule): Response<ApiResponse<ResponseRule>>
@@ -70,10 +70,10 @@ interface EndPoint {
     suspend fun rules(
         @Path("offset") offset: Long,
         @Path("limit") limit: Long
-    ): Response<ApiResponse<ResponseRuleItems>>
+    ): Response<ApiResponse<ResponseOffsetItems<ResponseRule>>>
 
     @GET("v1/rule/id/{id}/groups")
-    suspend fun ruleWithGroup(@Path("id") id: Long): Response<ApiResponse<ResponseItemsInt>>
+    suspend fun ruleWithGroup(@Path("id") id: Long): Response<ApiResponse<ResponseItems<Long>>>
 
     @GET("v1/device/reboot")
     suspend fun deviceReboot(): Response<ApiResponse<NullType>>

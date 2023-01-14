@@ -45,7 +45,7 @@ class RuleTest {
             sun_period = emptyList(),
             special_days = specialDay
         )
-        request.ruleSearch(ruleId).map {
+        request.ruleGet(ruleId).map {
             ruleExist = true
         }
 
@@ -74,7 +74,7 @@ class RuleTest {
             assert(false)
         }
 
-        request.ruleSearch(ruleId).map {
+        request.ruleGet(ruleId).map {
             assert(it.rule_id == ruleId)
             assert(it.name == ruleName)
             assert(it.schedule.mon_period.size == period.size)

@@ -34,7 +34,7 @@ class UserTest {
 
         val userAvatar = Base64.getEncoder().encodeToString(faceBinary)
 
-        request.userSearch(userId).map {
+        request.userGet(userId).map {
             userExist = true
         }
 
@@ -79,7 +79,7 @@ class UserTest {
             assert(false)
         }
 
-        request.userSearch(userId).map {
+        request.userGet(userId).map {
             assert(it.user_id == userId)
             assert(it.name == userName)
             assert(it.type == userType)

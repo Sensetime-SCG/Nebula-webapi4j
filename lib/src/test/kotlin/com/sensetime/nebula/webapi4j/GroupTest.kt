@@ -23,7 +23,7 @@ class GroupTest {
         val groupId: Long = 123
         val ruleId: Long = 0 //not bind any
         var groupExist = false
-        request.groupSearch(groupId).map {
+        request.groupGet(groupId).map {
             if (groupId == it.group_id)
                 groupExist = true
         }.mapError { println(it.message) }
@@ -40,7 +40,7 @@ class GroupTest {
             assert(false)
         }
 
-        request.groupSearch(groupId).map {
+        request.groupGet(groupId).map {
             assert(it.group_id == groupId)
             assert(it.name == groupName)
             assert(it.type == groupType)

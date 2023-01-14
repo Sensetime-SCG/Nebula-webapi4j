@@ -1,29 +1,6 @@
 package com.sensetime.nebula.webapi4j.lib.dto
 
 
-data class Role(
-    val roleId: Long,
-    val roleName: String
-)
-
-data class Customer(
-    val id: Long,
-    val firstName: String,
-    val lastName: String,
-    val phones: List<String>,
-    val email: String,
-    val address: String
-)
-
-data class Supplier(
-    val id: Long,
-    val firstName: String,
-    val lastName: String,
-    val phones: List<String>,
-    val email: String,
-    val address: String
-)
-
 data class DeviceModelVersion(
     val hunter: String,
     val august: String,

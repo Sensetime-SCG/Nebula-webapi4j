@@ -86,7 +86,7 @@ class WebApi(
                     ) {
                     }
 
-                    override fun getAcceptedIssuers(): Array<X509Certificate?>? {
+                    override fun getAcceptedIssuers(): Array<X509Certificate?> {
                         return arrayOf()
                     }
                 }

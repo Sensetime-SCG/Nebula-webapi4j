@@ -13,37 +13,37 @@ interface RemoteDataSource {
 
     suspend fun userCreate(body: RequestUser): RemoteResponseWrap<ResponseUser>
 
-    suspend fun userSearch(id: Long): RemoteResponseWrap<ResponseUser>
+    suspend fun userGet(id: Long): RemoteResponseWrap<ResponseUser>
 
     suspend fun userUpdate(id: Long, body: RequestUser): RemoteResponseWrap<ResponseUser>
 
     suspend fun userDelete(id: Long): RemoteResponse<NullType?, Exception>
 
-    suspend fun users(offset: Long, limit: Long): RemoteResponseWrap<ResponseUserItems>
+    suspend fun users(offset: Long, limit: Long): RemoteResponseWrap<ResponseOffsetItems<ResponseUser>>
 
     suspend fun groupCreate(body:RequestGroup): RemoteResponseWrap<ResponseGroup>
 
-    suspend fun groupSearch(id: Long):RemoteResponseWrap<ResponseGroup>
+    suspend fun groupGet(id: Long):RemoteResponseWrap<ResponseGroup>
 
     suspend fun groupUpdate(id:Long, body: RequestGroup):RemoteResponseWrap<ResponseGroup>
 
     suspend fun groupDelete(id: Long): RemoteResponse<NullType?, Exception>
 
-    suspend fun groups(offset: Long,limit: Long):RemoteResponseWrap<ResponseGroupItems>
+    suspend fun groups(offset: Long,limit: Long):RemoteResponseWrap<ResponseOffsetItems<ResponseGroup>>
 
-    suspend fun groupWithUsers(id: Long):RemoteResponseWrap<ResponseItemsInt>
+    suspend fun groupWithUsers(id: Long):RemoteResponseWrap<ResponseItems<Long>>
 
     suspend fun ruleCreate(body: RequestRule):RemoteResponseWrap<ResponseRule>
 
-    suspend fun ruleSearch(id: Long):RemoteResponseWrap<ResponseRule>
+    suspend fun ruleGet(id: Long):RemoteResponseWrap<ResponseRule>
 
     suspend fun ruleUpdate(id: Long, body: RequestRule): RemoteResponseWrap<ResponseRule>
 
     suspend fun ruleDelete(id: Long): RemoteResponse<NullType?, Exception>
 
-    suspend fun rules(offset: Long,limit: Long):RemoteResponseWrap<ResponseRuleItems>
+    suspend fun rules(offset: Long,limit: Long):RemoteResponseWrap<ResponseOffsetItems<ResponseRule>>
 
-    suspend fun ruleWithGroup(id: Long):RemoteResponseWrap<ResponseItemsInt>
+    suspend fun ruleWithGroup(id: Long):RemoteResponseWrap<ResponseItems<Long>>
 
     suspend fun deviceReboot(): RemoteResponse<NullType?, Exception>
 
