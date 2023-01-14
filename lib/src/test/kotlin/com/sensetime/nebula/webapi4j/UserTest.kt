@@ -79,6 +79,30 @@ class UserTest {
             assert(false)
         }
 
+        request.userSearch(RequestUserSearch(name = userName)).map {
+            assert(it.items.isNotEmpty())
+            assert(it.items[0] == userId)
+        }.mapError {
+            println(it.message)
+            assert(false)
+        }
+
+        request.userSearch(RequestUserSearch(job_number = jobNumber)).map {
+            assert(it.items.isNotEmpty())
+            assert(it.items[0] == userId)
+        }.mapError {
+            println(it.message)
+            assert(false)
+        }
+
+        request.userSearch(RequestUserSearch(ic_number = icNumber)).map {
+            assert(it.items.isNotEmpty())
+            assert(it.items[0] == userId)
+        }.mapError {
+            println(it.message)
+            assert(false)
+        }
+
         request.userGet(userId).map {
             assert(it.user_id == userId)
             assert(it.name == userName)
@@ -117,13 +141,13 @@ class UserTest {
             assert(it.ic_number == icNumber + "new")
             assert(it.id_number == idNumber + "new")
             assert(it.job_number == jobNumber + "new")
-            assert(it.remark == remark+"new")
+            assert(it.remark == remark + "new")
         }.mapError {
             println(it.message)
             assert(false)
         }
 
-        request.users(0,10).map {
+        request.users(0, 10).map {
             assert(it.count > 0)
             assert(it.total > 0)
             assert(it.items.isNotEmpty())

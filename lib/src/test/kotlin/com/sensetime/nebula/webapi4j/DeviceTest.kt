@@ -71,8 +71,8 @@ class DeviceTest {
     // ignore this test
     @Ignore
     @Test
-    fun testDeviceUpgrade():Unit = runBlocking {
-        val firmwarePath = this::class.java.getResource("/pictures/face_Andy-Lau.jpeg")?.path
+    fun testDeviceUpgrade(): Unit = runBlocking {
+        val firmwarePath = this::class.java.getResource("/path/of/firmware")?.path
         assert(firmwarePath != null)
         val part = MultipartBody.Part.createFormData(
             "firmware",

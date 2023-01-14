@@ -40,6 +40,14 @@ class GroupTest {
             assert(false)
         }
 
+        request.groupSearch(RequestSearchOfName(groupName)).map {
+            assert(it.items.isNotEmpty())
+            assert(it.items[0] == groupId)
+        }.mapError {
+            println(it.message)
+            assert(false)
+        }
+
         request.groupGet(groupId).map {
             assert(it.group_id == groupId)
             assert(it.name == groupName)
@@ -58,7 +66,7 @@ class GroupTest {
             assert(false)
         }
 
-        request.groups(0,10).map {
+        request.groups(0, 10).map {
             println(it)
         }.mapError {
             println(it.message)

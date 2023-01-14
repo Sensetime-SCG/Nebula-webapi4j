@@ -9,7 +9,11 @@ import kotlinx.coroutines.*
 import kotlin.test.Test
 
 class RuleTest {
-    private val request: RemoteDataSource = WebApi(System.getProperty("serverUrl"), System.getProperty("username"), System.getProperty("password")).getEndpoint()
+    private val request: RemoteDataSource = WebApi(
+        System.getProperty("serverUrl"),
+        System.getProperty("username"),
+        System.getProperty("password")
+    ).getEndpoint()
     private val unixMillisTime_2017_07_14 = 1500000000000
 
     @Test
@@ -74,6 +78,14 @@ class RuleTest {
             assert(false)
         }
 
+        request.ruleSearch(RequestSearchOfName(ruleName)).map {
+            assert(it.items.isNotEmpty())
+            assert(it.items[0] == ruleId)
+        }.mapError {
+            println(it.message)
+            assert(false)
+        }
+
         request.ruleGet(ruleId).map {
             assert(it.rule_id == ruleId)
             assert(it.name == ruleName)
@@ -99,9 +111,9 @@ class RuleTest {
             assert(false)
         }
 
-        request.rules(0,10).map {
+        request.rules(0, 10).map {
             println(it)
-            assert(it.count!=0)
+            assert(it.count != 0)
         }.mapError {
             println(it.message)
             assert(false)
