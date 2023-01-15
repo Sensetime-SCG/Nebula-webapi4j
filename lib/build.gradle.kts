@@ -25,7 +25,9 @@ dependencies {
 
     testImplementation(kotlin("test"))
 
-    implementation("com.google.code.gson:gson:2.10")
+    implementation("org.slf4j:slf4j-nop:2.0.5")
+    implementation("org.jmdns:jmdns:3.5.8")
+    implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
